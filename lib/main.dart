@@ -1,11 +1,11 @@
 //local
 import 'package:flutter/material.dart';
 import 'package:chat_app/screens/auth_screen.dart';
+import 'package:chat_app/screens/chart_screen.dart';
 import 'package:chat_app/screens/splash_screen.dart';
 
 //firebase
 import 'firebase_options.dart';
-import 'package:chat_app/screens/chart_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
