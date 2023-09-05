@@ -8,6 +8,26 @@ class NewMessage extends StatefulWidget {
 }
 
 class _NewMessageState extends State<NewMessage> {
+  var _messageController = TextEditingController();
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    super.dispose();
+  }
+
+  void _submitMessage() {
+    final enteredMessage = _messageController.text;
+
+    if (enteredMessage.trim().isEmpty) {
+      return;
+    }
+
+    //send to firebase
+
+    _messageController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,6 +40,7 @@ class _NewMessageState extends State<NewMessage> {
         children: [
           Expanded(
             child: TextField(
+              controller: _messageController,
               textCapitalization: TextCapitalization.sentences,
               enableSuggestions: true,
               decoration: InputDecoration(labelText: 'Send a message...'),
@@ -27,7 +48,7 @@ class _NewMessageState extends State<NewMessage> {
           ),
           IconButton(
             color: Theme.of(context).colorScheme.primary,
-            onPressed: () {},
+            onPressed: _submitMessage,
             icon: const Icon(Icons.send),
           )
         ],
